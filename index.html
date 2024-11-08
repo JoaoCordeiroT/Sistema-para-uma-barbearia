@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <style>
+        /* Fundo cinza para a página */
+        body {
+            background-color: #d3d3d3;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Alinha ao topo */
+            align-items: flex-start; /* Alinha à esquerda */
+            height: 100vh;
+            margin: 0;
+            padding: 20px; /* Ajuste no espaçamento entre a borda e o conteúdo */
+        }
+
+        /* Contêiner para as mensagens e entrada */
+        #chatContainer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Estilo das mensagens */
+        .message {
+            background-color: #ffffffc9; /* Fundo branco */
+            color: #333333; /* Cor do texto */
+            padding: 20px 40px;
+            border-radius: 8px;
+            text-align: left; /* Alinha o texto à esquerda */
+            font-size: 1.5em;
+            opacity: 0; /* Começa invisível */
+            transform: translateY(-20px); /* Inicia ligeiramente acima */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
+            width: 100%; /* Faz a largura ocupar todo o espaço disponível */
+            max-width: 600px; /* Limita a largura máxima */
+            margin-bottom: 20px; /* Espaço entre as mensagens */
+        }
+
+        /* Contêiner para o campo de digitação (à direita) */
+        #inputContainer {
+            display: flex;
+            justify-content: flex-end; /* Alinha à direita */
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Estilo do campo de entrada e botão */
+        #nameInput {
+            padding: 10px;
+            font-size: 1.2em;
+            margin-right: 10px; /* Espaço entre o campo e o botão */
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 250px; /* Largura ajustada */
+        }
+
+        #submitButton {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            background-color: #4CAF50; /* Cor do botão */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #submitButton:hover {
+            background-color: #45a049; /* Cor do botão ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contêiner do chat -->
+    <div id="chatContainer">
+
+        <!-- Primeira mensagem -->
+        <div id="welcomeMessage" class="message">Olá, tudo bem? Sou a assistente virtual do Generic Barber Shop e cuido do agendamento dos serviços dos profissionais, ok?</div>
+
+        <!-- Segunda mensagem -->
+        <div id="nameMessage" class="message">Qual o seu nome? Escreva seu nome e sobrenome, por favor.</div>
+
+        <!-- Contêiner para o campo de digitação e botão -->
+        <div id="inputContainer">
+            <input type="text" id="nameInput" placeholder="Digite seu nome completo" />
+            <button id="submitButton">Enviar</button>
+        </div>
+
+        <!-- Mensagem personalizada -->
+        <div id="personalizedMessage" class="message" style="display: none;"></div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            const nameMessage = document.getElementById("nameMessage");
+            const nameInput = document.getElementById("nameInput");
+            const submitButton = document.getElementById("submitButton");
+            const personalizedMessage = document.getElementById("personalizedMessage");
+
+            // Primeira mensagem aparece após 500ms
+            setTimeout(() => {
+                welcomeMessage.style.opacity = 1; // Torna a mensagem visível
+                welcomeMessage.style.transform = 'translateY(0)'; // Posição final
+            }, 500);
+
+            // Segunda mensagem aparece após 1500ms (1 segundo após a primeira)
+            setTimeout(() => {
+                nameMessage.style.opacity = 1;
+                nameMessage.style.transform = 'translateY(0)';
+            }, 1500);
+
+            // Função para exibir a mensagem personalizada após o envio do nome
+            submitButton.addEventListener("click", function() {
+                const name = nameInput.value.trim();
+
+                if (name) {
+                    // Exibe a mensagem personalizada com o nome
+                    personalizedMessage.style.display = "block";
+                    personalizedMessage.style.opacity = 1;
+                    personalizedMessage.style.transform = 'translateY(0)';
+                    personalizedMessage.innerHTML = `Como vai, <strong>${name}!</strong> Tudo bem?`;
+                } else {
+                    alert("Por favor, digite seu nome.");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
