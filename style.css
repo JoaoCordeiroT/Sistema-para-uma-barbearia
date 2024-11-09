@@ -1,0 +1,92 @@
+/* Fundo cinza para a página */
+body {
+    background-color: #d3d3d3;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container de mensagens */
+#chatContainer {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Estilo das mensagens */
+.message {
+    background-color: #ffffffc9;
+    color: #333333;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1.5em;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-bottom: 20px;
+}
+
+/* Estilos do carrossel */
+.carousel {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.carousel-images, .carousel-days {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+}
+
+.carousel-image, .carousel-day {
+    min-width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+/* Efeito de hover nas opções de corte */
+.carousel-image:hover, .carousel-day:hover {
+    transform: scale(1.1); /* Ligeiro aumento ao passar o mouse */
+    background-color: #f1f1f1;
+}
+
+.carousel-btn {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Estilo para os dias da semana no carrossel */
+.carousel-day {
+    min-width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+/* Efeito de hover nas imagens do carrossel */
+.carousel-image:hover {
+    transform: scale(1.05); /* Ligeiro aumento ao passar o mouse */
+    cursor: pointer; /* Altera o cursor para indicar um link */
+}

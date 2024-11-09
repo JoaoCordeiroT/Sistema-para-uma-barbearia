@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="chatContainer">
+        <!-- Mensagens de boas-vindas e solicitação de nome -->
+        <div id="welcomeMessage" class="message">Olá, tudo bem? Sou a assistente virtual do Generic Barber Shop e cuido do agendamento dos serviços dos profissionais, ok?</div>
+        <div id="nameMessage" class="message">Qual o seu nome? Escreva seu nome e sobrenome, por favor.</div>
+
+        <!-- Campo de input para o nome -->
+        <div id="inputContainer" style="display: none;">
+            <input type="text" id="nameInput" placeholder="Digite seu nome completo" />
+            <button id="submitButton">Enviar</button>
+        </div>
+
+        <!-- Mensagem personalizada e solicitação de serviço -->
+        <div id="personalizedMessage" class="message" style="display: none;"></div>
+        <div id="serviceMessage" class="message" style="display: none;">Por qual serviço você está procurando?</div>
+
+        <!-- Carrossel de opções de serviço -->
+        <div id="carousel" class="carousel" style="display: none;">
+            <button id="prevBtn" class="carousel-btn">&lt;</button>
+            <div class="carousel-images">
+                <img src="images/corte.jpg" alt="Corte" class="carousel-image" data-service="Corte" />
+                <img src="images/barba.jpg" alt="Barba" class="carousel-image" data-service="Barba" />
+                <img src="images/corte-barba.jpg" alt="Corte e Barba" class="carousel-image" data-service="Corte e Barba" />
+                <img src="images/corte-penteado.jpg" alt="Corte e Penteado" class="carousel-image" data-service="Corte e Penteado" />
+            </div>
+            <button id="nextBtn" class="carousel-btn">&gt;</button>
+        </div>
+
+        <!-- Mensagem de confirmação do serviço -->
+        <div id="selectedServiceMessage" class="message" style="display: none;"></div>
+
+        <!-- Carrossel de dias da semana -->
+        <div id="daysCarousel" class="carousel" style="display: none;">
+            <button id="prevDayBtn" class="carousel-btn">&lt;</button>
+            <div class="carousel-days">
+                <div class="carousel-day" data-day="Segunda-feira">Segunda-feira</div>
+                <div class="carousel-day" data-day="Terça-feira">Terça-feira</div>
+                <div class="carousel-day" data-day="Quarta-feira">Quarta-feira</div>
+                <div class="carousel-day" data-day="Quinta-feira">Quinta-feira</div>
+                <div class="carousel-day" data-day="Sexta-feira">Sexta-feira</div>
+                <div class="carousel-day" data-day="Sábado">Sábado</div>
+                <div class="carousel-day" data-day="Domingo">Domingo</div>
+            </div>
+            <button id="nextDayBtn" class="carousel-btn">&gt;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
